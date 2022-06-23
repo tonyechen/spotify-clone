@@ -50,6 +50,11 @@ link: https://next-auth.js.org/tutorials/refresh-token-rotation
 ***OAuth (Open authroization)*** is an open standard authorization framework for token based authorization on the internet. It enables an end user's account information to be used by third-party services, such as Facebook and google, without exposing the user's account credentials to the 3rd party. It acts as an intermediary on the behalf of the end user, providing the 3rd party service with an access token that authorizes specific account information to be shared. The process for obtaining the token is called an authorization flow.
 - refresh token is used to update expired access token, usually refresh token never expires
 
+Callbacks
+
+asynchronous functions that we can use to control what happens when an action is performed
+- if you want to pass data such as an Access Token or User ID to the browser when using JSON WEb Tokens, you can persist the data in the token when the ***jwt*** callback is called, then pass the data through to the browser in the ***session*** callback
+
 # Spotify API
 ```
 export default NextAuth({
