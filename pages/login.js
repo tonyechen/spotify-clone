@@ -14,7 +14,7 @@ function Login({ providers }) {
                     return (
                         <div key={provider.name} className="m-auto">
                             <button
-                                className="bg-gray-800 hover:bg-gray-600 text-white px-5 py-1 rounded-xl"
+                                className="bg-gray-800 text-white px-5 py-1 rounded-xl border-2 hover:bg-white hover:border-black hover:text-black ease-in-out duration-300"
                                 onClick={() =>
                                     signIn(provider.id, { callbackUrl: '/' })
                                 }

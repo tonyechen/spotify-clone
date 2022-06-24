@@ -1,7 +1,8 @@
 import '../styles/globals.css';
 import Head from 'next/head';
+import { SessionProvider } from 'next-auth/react';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     return (
         <>
             <Head>
@@ -15,7 +16,10 @@ function MyApp({ Component, pageProps }) {
                     href="https://pnggrid.com/wp-content/uploads/2021/05/Spotify-PNG-Logo-768x767.png"
                 />
             </Head>
-            <Component {...pageProps} />
+
+            <SessionProvider session={session}>
+                <Component {...pageProps} />
+            </SessionProvider>
         </>
     );
 }

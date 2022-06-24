@@ -34,14 +34,15 @@ npm install @heroicons/react
 
 ```
 
+## Middleware
+create '_middleware.js' in pages
 # NextAuth.js
 ```
 npm install next-auth
 ```
 Authentication Module built for next.js
 
-Basic how to use link: 
-https://next-auth.js.org/getting-started/example
+Documentation: https://next-auth.js.org/getting-started/introduction
 
 NextAuth Refresh Token Rotation:
 
@@ -50,10 +51,17 @@ link: https://next-auth.js.org/tutorials/refresh-token-rotation
 ***OAuth (Open authroization)*** is an open standard authorization framework for token based authorization on the internet. It enables an end user's account information to be used by third-party services, such as Facebook and google, without exposing the user's account credentials to the 3rd party. It acts as an intermediary on the behalf of the end user, providing the 3rd party service with an access token that authorizes specific account information to be shared. The process for obtaining the token is called an authorization flow.
 - refresh token is used to update expired access token, usually refresh token never expires
 
-Callbacks
-
+## Callbacks
 asynchronous functions that we can use to control what happens when an action is performed
 - if you want to pass data such as an Access Token or User ID to the browser when using JSON WEb Tokens, you can persist the data in the token when the ***jwt*** callback is called, then pass the data through to the browser in the ***session*** callback
+
+## Sessions
+Use < SessionProvider > to allows instances of useSession() to share the session object across components. It keeps the session updated and synced between tabs/windows
+
+More info: https://next-auth.js.org/getting-started/client#sessionprovider
+
+The data in the session object is based on the ***session callback*** we defined 
+
 
 # Spotify API
 ```
