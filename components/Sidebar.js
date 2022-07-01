@@ -17,6 +17,8 @@ const Sidebar = () => {
     const [playlists, setPlaylists] = useState();
     const [playlistId, setPlaylistId] = useState();
 
+    console.log('You picked playlist >>> ', playlistId)
+
     useEffect(() => {
         if (spotifyApi.getAccessToken()) {
             spotifyApi.getUserPlaylists().then((data) => {
