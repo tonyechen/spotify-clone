@@ -10,12 +10,15 @@ import {
 } from '@heroicons/react/outline';
 import { signOut, useSession } from 'next-auth/react';
 import useSpotify from '../hooks/useSpotify';
+import { playlistIdState } from '../atoms/playlistAtom';
+import {useRecoilState } from "recoil";
 
 const Sidebar = () => {
     const spotifyApi = useSpotify();
     const { data: session, status } = useSession();
     const [playlists, setPlaylists] = useState();
-    const [playlistId, setPlaylistId] = useState();
+    // pass in an atom as argument for useRecoilState
+    const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
 
     console.log('You picked playlist >>> ', playlistId)
 
@@ -29,15 +32,8 @@ const Sidebar = () => {
     }, [session, spotifyApi]);
 
     return (
-        <div className="text-gray-500 p-5 text-sm border-r overflow-y-scroll scrollbar-hide h-screen">
+        <div className="text-gray-500 p-5 text-xs lg:text-sm border-r overflow-y-scroll scrollbar-hide h-screen sm:max-w-{12rem} lg:max-w-{15rem} hidden md:inline-flex pb-36">
             <div className="space-y-4">
-                <button
-                    className="flex items-center space-x-2 hover:text-white"
-                    onClick={() => signOut()}
-                >
-                    <LogoutIcon className="h-5 w-5" />
-                    <p></p>
-                </button>
                 <button className="flex items-center space-x-2 hover:text-white">
                     <HomeIcon className="h-5 w-5" />
                     <p>Home</p>

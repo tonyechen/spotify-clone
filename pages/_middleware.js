@@ -12,14 +12,23 @@ export async function middleware(req) {
     // Allow the request if the following is true
     // 1) the token exists
     // 2) the token exists
-    if (pathname.includes('/api/auth') || token) {
-        return NextResponse.next();
-    }
+    try {
+        if (pathname.includes('/api/auth') || token) {
+            return NextResponse.next();
+        }
 
-    // Redirect them to login if they don't have token AND are requesting protected route
-    if (!token && pathname !== '/login') {
-        const url = req.nextUrl.clone();
-        url.pathname = '/login';
-        return NextResponse.redirect(url);
+        // Redirect them to login if they don't have token AND are requesting protected route
+        if (!token && pathname !== '/login') {
+            const url = req.nextUrl.clone();
+            url.pathname = '/login';
+            return NextResponse.redirect(url);
+        }
+    } catch (err) {
+        console.log('i got here');
+        if (err.error == 'refreshAccessTokenError') {
+            const url = req.nextUrl.clone();
+            url.pathname = '/login';
+            return NextResponse.redirect(url);
+        }
     }
 }

@@ -19,7 +19,7 @@ async function refreshAccessToken(token) {
             refreshToken: refreshedToken.refresh_token ?? token.refreshToken,
         };
     } catch (error) {
-        console.log(error);
+        console.log("can't refresh", error);
         return {
             ...token,
             error: 'RefreshAccessTokenError',

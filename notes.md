@@ -62,7 +62,9 @@ More info: https://next-auth.js.org/getting-started/client#sessionprovider
 
 The data in the session object is based on the ***session callback*** we defined 
 
-
+# Recoil
+Typical way to use recoil is to create an Atom, which represents state in Recoil. It is like a section of the global state, it can be like a playlist atom and song atom and should be contextual to what it is used for.
+- Each atom need to have a unique key
 # Spotify API
 ```
 export default NextAuth({
