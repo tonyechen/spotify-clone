@@ -10,6 +10,8 @@ tokens
 NextAuth
 Recoil
 
+Functionality
+---
 Replicated Spotify Music Playing Functionality, serve as a secondary application that plays songs through an active spotify device.
 
 ScreenShot:
