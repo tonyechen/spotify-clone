@@ -79,3 +79,6 @@ export default NextAuth({
 });
 ```
 - authorization define the permission to Spotify data and features. The access to protected resources is determined by one or several scopes. Scopes enable the app to access specific functionality (e.g. read a playlist, modify your library or just streaming) on behalf of a user
+
+# Debounce
+a practice used to improve browser performance. There might be some functionality in a web page which requires time-consuming computations. If such a method is invoked frequently, it might greatly affect the performance of the browser, as JavaScript is a single threaded language. Debouncing is a programming practice used to ensure that time-consuming tasks do not fire so often, that it stalls the performance of the web page. In other words, it limits the rate at which a function gets invoked.
